@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import argparse
 
+
 def configs():
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_path',
@@ -13,7 +14,8 @@ def configs():
                         default='../data/log/saver/')
     parser.add_argument('--training_instance',
                         type=str,
-                        help="Specific saved model to load. A new one will be generated if empty.",
+                        help="Specific saved model to load."
+                             "A new one will be generated if empty.",
                         default='')
     parser.add_argument('--summary_path',
                         type=str,
@@ -33,7 +35,8 @@ def configs():
                         default=0.9)
     parser.add_argument('--smoothness_weight',
                         type=float,
-                        help='Weight for the smoothness term in the loss function.',
+                        help='Weight for the smoothness term '
+                             'in the loss function.',
                         default=0.5)
     parser.add_argument('--image_height',
                         type=int,
@@ -45,13 +48,16 @@ def configs():
                         default=256)
     parser.add_argument('--no_batch_norm',
                         action='store_true',
-                        help='If true, batch norm will not be performed at each layer')
+                        help='If true, batch norm will not be performed '
+                             'at each layer')
     parser.add_argument('--count_only',
                         action='store_true',
-                        help='If true, inputs will consist of the event counts only.')
+                        help='If true, inputs will consist of the event '
+                             'counts only.')
     parser.add_argument('--time_only',
                         action='store_true',
-                        help='If true, inputs will consist of the latest timestamp only.')
+                        help='If true, inputs will consist of the '
+                             'latest timestamp only.')
 
     # Args for testing only.
     parser.add_argument('--test_sequence',
@@ -64,13 +70,15 @@ def configs():
                         default='')
     parser.add_argument('--test_plot',
                         action='store_true',
-                        help='If true, the flow predictions will be visualized during testing.')
+                        help='If true, the flow predictions will be '
+                             'visualized during testing.')
     parser.add_argument('--test_skip_frames',
                         action='store_true',
                         help='If true, input images will be 4 frames apart.')
     parser.add_argument('--save_test_output',
                         action='store_true',
-                        help='If true, output flow will be saved to a npz file.')
+                        help='If true, output flow will be saved to a '
+                             'npz file.')
 
     args = parser.parse_args()
     return args
